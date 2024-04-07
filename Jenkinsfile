@@ -11,6 +11,7 @@ pipeline {
         }
         stage('build'){
             steps{
+                cleanWs()
                 sh 'mkdir ~/publish'
                 sh 'dotnet publish -c Release src/Presentation/Nop.Web/Nop.Web.csproj -o ./publish'
                 sh 'zip -r Nop.Web.zip publish'
