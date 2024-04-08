@@ -1,6 +1,10 @@
 pipeline {
     agent { label 'DOTNET'}
 
+    triggers {
+        pollSCM ('* * * * *')
+    }
+
     stages {
         stage('git') {
             steps{
@@ -19,6 +23,12 @@ pipeline {
                 project: 'src/Presentation/Nop.Web/Nop.Web.csproj'
                 
             }
+        }
+        post {
+            zip zipfile: 'Nop.Web.zip',
+            archive: true,
+            dir: './publish',
+            overwrite: true
         }
     }
     
