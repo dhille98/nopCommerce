@@ -14,26 +14,26 @@ pipeline {
             }
 
         }
-        stage('build'){
-            steps{
-                
-                // sh 'dotnet publish -c Release src/Presentation/Nop.Web/Nop.Web.csproj -o ./publish'
-                dotnetPublish configuration: 'Realese',
-                outputDirectory : 'publish',
-                project: 'src/Presentation/Nop.Web/Nop.Web.csproj'
-                
-            }
-            post {
-                success{
-                     zip zipfile: 'Nop.Web.zip',
-                     archive: true,
-                     dir: './publish',
-                     overwrite: true
+        stage('build') {
+            steps {
+                //sh 'dotnet publish -o published/ -c Release src/Presentation/Nop.Web/Nop.Web.csproj'
+                dotnetPublish configuration: 'Release',
+                    outputDirectory: 'published',
+                    project: 'src/Presentation/Nop.Web/Nop.Web.csproj'
 
             }
+            post {
+                success {
+                      zip zipFile: 'nop.web.zip',
+                      archive: true,
+                      dir: './published',
+                      overwrite: true,
+                      archiveArtifacts artifacts: 'published/**,
+                      onlyIfSuccessful: true
+                }
+            }
         }
-        
-        }
+
     }
     
 }
