@@ -25,10 +25,14 @@ pipeline {
             }
         }
         post {
-            zip zipfile: 'Nop.Web.zip',
-            archive: true,
-            dir: './publish',
-            overwrite: true
+            suscess{
+                zip zipfile: 'Nop.Web.zip',
+                archive: true,
+                dir: './publish',
+                overwrite: true
+            }
+
+            
         }
     }
     
