@@ -13,7 +13,10 @@ pipeline {
         stage('build'){
             steps{
                 
-                sh 'dotnet publish -c Release src/Presentation/Nop.Web/Nop.Web.csproj -o ./publish'
+                // sh 'dotnet publish -c Release src/Presentation/Nop.Web/Nop.Web.csproj -o ./publish'
+                dotnetPublish configuration: 'Realese',
+                outputDirectory : 'publish',
+                project: 'src/Presentation/Nop.Web/Nop.Web.csproj'
                 
             }
         }
