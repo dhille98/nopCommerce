@@ -23,8 +23,6 @@ pipeline {
                 project: 'src/Presentation/Nop.Web/Nop.Web.csproj'
                 
             }
-        }
-        stage('zip') {
             post {
                 success{
                      zip zipfile: 'Nop.Web.zip',
@@ -33,9 +31,8 @@ pipeline {
                      overwrite: true
 
             }
-
-            
         }
+        
         }
     }
     
