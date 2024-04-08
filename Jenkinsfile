@@ -8,6 +8,7 @@ pipeline {
                     branch: 'dev'
 
             }
+            
         }
         stage('build'){
             steps{
