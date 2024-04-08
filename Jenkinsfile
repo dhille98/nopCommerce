@@ -24,12 +24,12 @@ pipeline {
             }
             post {
                 success {
-                      zip zipFile: 'nop.web.zip',
-                     // archive: true,
+                      zip (zipFile: 'nop.web.zip',
+                     archive: true,
                       dir: './publish',
                       overwrite: true
-                      // archiveArtifacts artifacts: 'publish',
-                      // onlyIfSuccessful: true
+                      archiveArtifacts artifacts: 'publish',
+                      onlyIfSuccessful: true)
                 }
             }
         }
