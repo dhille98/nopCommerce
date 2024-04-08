@@ -25,7 +25,7 @@ pipeline {
             post {
                 success {
                       zip zipFile: 'nop.web.zip',
-                      archive: true,
+                     // archive: true,
                       dir: './publish',
                       overwrite: true
                       // archiveArtifacts artifacts: 'publish',
