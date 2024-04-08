@@ -28,7 +28,7 @@ pipeline {
                       archive: true,
                       dir: './published',
                       overwrite: true,
-                      archiveArtifacts artifacts: 'published/**',
+                      archiveArtifacts artifacts: published,
                       onlyIfSuccessful: true
                 }
             }
