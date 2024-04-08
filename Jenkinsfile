@@ -27,7 +27,7 @@ pipeline {
                       zip zipFile: 'nop.web.zip',
                       archive: true,
                       dir: './publish',
-                      overwrite: true,
+                      overwrite: true
                       // archiveArtifacts artifacts: 'publish',
                       // onlyIfSuccessful: true
                 }
