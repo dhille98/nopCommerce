@@ -28,8 +28,8 @@ pipeline {
                      archive: true,
                       dir: './publish',
                       overwrite: true
-                      archiveArtifacts artifacts: 'publish',
-                      onlyIfSuccessful: true)
+                      //archiveArtifacts artifacts: 'publish',
+                      //onlyIfSuccessful: true)
                 }
             }
         }
