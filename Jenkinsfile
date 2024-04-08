@@ -26,12 +26,12 @@ pipeline {
         }
         stage('zip') {
             post {
-            success{
-                zip zipfile: 'Nop.Web.zip',
-                archive: true,
-                dir: './publish',
-                overwrite: true
-                
+                success{
+                     zip zipfile: 'Nop.Web.zip',
+                     archive: true,
+                     dir: './publish',
+                     overwrite: true
+
             }
 
             
