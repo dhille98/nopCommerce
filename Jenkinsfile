@@ -24,9 +24,8 @@ pipeline {
                 
             }
         }
-        
-    }
-    post {
+        stage('zip') {
+            post {
             success{
                 zip zipfile: 'Nop.Web.zip',
                 archive: true,
@@ -36,4 +35,7 @@ pipeline {
 
             
         }
+        }
+    }
+    
 }
