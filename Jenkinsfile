@@ -18,7 +18,7 @@ pipeline {
             steps {
                 //sh 'dotnet publish -o published/ -c Release src/Presentation/Nop.Web/Nop.Web.csproj'
                 dotnetPublish configuration: 'Release',
-                    outputDirectory: 'published',
+                    outputDirectory: 'publish',
                     project: 'src/Presentation/Nop.Web/Nop.Web.csproj'
 
             }
@@ -26,9 +26,9 @@ pipeline {
                 success {
                       zip zipFile: 'nop.web.zip',
                       archive: true,
-                      dir: './published',
+                      dir: './publish',
                       overwrite: true,
-                      archiveArtifacts artifacts: published,
+                      archiveArtifacts artifacts: 'publish',
                       onlyIfSuccessful: true
                 }
             }
