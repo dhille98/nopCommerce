@@ -15,7 +15,7 @@ pipeline {
             steps {
                 //sh 'mkdir publish'
                 sh 'dotnet publish -c Release src/Presentation/Nop.Web/Nop.Web.csproj -o publish'
-                sh 'zip -q Nop.Web'
+                sh 'zip -q Nop.Web.zip pubilsh/**'
                 archiveArtifacts artifacts: 'publish/'
             }
         }
