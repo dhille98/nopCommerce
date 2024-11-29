@@ -1,5 +1,5 @@
 pipeline {
-    agent { label 'DOTNET'}
+    agent any
 
     triggers {
         pollSCM ('* * * * *')
@@ -19,12 +19,11 @@ pipeline {
                 sh 'dotnet publish -c Release src/Presentation/Nop.Web/Nop.Web.csproj -o publish/'
                 sh 'archiveArtifacts artifacts: '*/publish', followSymlinks: false'
                 
-
-}
+          }
             
-                }
-            }
         }
+    }
+}
 
     
     
